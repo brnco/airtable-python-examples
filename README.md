@@ -28,7 +28,7 @@ Example:
 
 `{
 "id":"rec1234abc",
-"fields"{
+"fields":{
   "Name":"Ursula Le Guin",
   "Date of Birth":"1929-10-21"
   }
@@ -65,7 +65,7 @@ consider adding them as a lookup field to avoid this step
 ### Mind your truthiness
 
 In the API, a string value of "True" cannot be sent to a checkbox field as text, it has to be the Python boolean True,
-although it displays in Airtable RESt API docs as "true"
+although it displays in Airtable REST API docs as "true"
 
 In the GUI, you can copy + paste data with Y/N or 1/0 and Airtable will make the conversion, but not so in the API
 
