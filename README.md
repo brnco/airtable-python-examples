@@ -35,10 +35,8 @@ Example:
 So, to access the date of birth info, you would use `record['fields']['Date of Birth']`
 
 I find myself building dictionaries containing record information and then uploading that info
-with either insert() or update():
+with either `insert()` or `update()`:
 
-with insert() you just send the dictionary
+with `insert()` you just send the dictionary
 
-with update() you send the dictionary with a recordID, e.g.:
-
-airtable_connection.update(recordID, {"field1":"value"})
+with `update()` you send the dictionary with a recordID, e.g. `airtable_connection.update(recordID, {"field1":"value"})`
