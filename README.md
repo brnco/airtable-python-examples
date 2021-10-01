@@ -1,6 +1,8 @@
 # airtable-python-examples
 a repo containing basic examples for how to implement the Airtable API in Python using [airtable-python-wrapper](https://airtable-python-wrapper.readthedocs.io/en/airtable-python-wrapper/)
 
+focused heavily on file operations/ cultural heritage work
+
 contains examples for:
 * uploading files to an attachment field
 * downloading files from an attachment field
@@ -39,4 +41,36 @@ with either `insert()` or `update()`:
 
 with `insert()` you just send the dictionary
 
-with `update()` you send the dictionary with a recordID, e.g. `airtable_connection.update(recordID, {"field1":"value"})`
+with `update()` you send the dictionary with a recordID, e.g.
+
+`airtable_connection.update(recordID, {"field1":"value"})`
+
+### Airtable returns lots of things as lists
+
+Your search results are lists, your get_all() is a list, your attachment fields are lists, etc.
+
+These lists tend to be lists of dictionaries
+
+### Linked records are linked on their record ID
+
+Linked records are returned as their record ID/ list of record IDs,
+to get the info in the linked record, use a second authenticated Airtable connection
+to the table containing the linked record, as below:
+
+`another_airtable_connection.get(recordID)`
+
+If info in linked records is generally useful in the table they're being linked to,
+consider adding them as a lookup field to avoid this step
+
+### Mind your truthiness
+
+In the API, a string value of "True" cannot be sent to a checkbox field as text, it has to be the Python boolean True,
+although it displays in Airtable RESt API docs as "true"
+
+In the GUI, you can copy + paste data with Y/N or 1/0 and Airtable will make the conversion, but not so in the API
+
+### Time
+
+All durations are in seconds (hallelujah)
+
+All dates are in ISO-8601 (also hallelujah)
