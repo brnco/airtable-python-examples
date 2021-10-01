@@ -46,7 +46,7 @@ def build_upload_url(file_fullpath, server_root_path, hostname_url):
         file_upload_url_path = urllib.parse.urljoin(hostname_url, _file_fullpath.name)
     return file_upload_url_path
 
-def airtable_uploader(file_upload_url, record_id, field, airtable_connection):
+def upload_file(file_upload_url, record_id, field, airtable_connection):
     '''
     airtable requires uploads be hosted on public web
     we use http_server below + filepath here to do that
